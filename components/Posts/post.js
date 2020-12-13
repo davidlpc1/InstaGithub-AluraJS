@@ -1,4 +1,3 @@
-
 import React,{ useState } from 'react';
 import { 
   StyleSheet, 
@@ -44,7 +43,7 @@ export default function InstaGitHubCard({ githubUser }){
               style={styles.miniImageUser}
               source={imageUser} 
             />
-            <Text style={{fontSize:18}}>{githubUser}</Text>
+            <Text style={{fontSize:15}}>{githubUser}</Text>
           </View>
   
           <View>
@@ -69,7 +68,7 @@ export default function InstaGitHubCard({ githubUser }){
               {liked &&  <AntDesign name="heart" size={24} color="red" />}
               {!liked && <AntDesign name="hearto" size={24} color="black" />}
             </TouchableOpacity>
-            <Text style={{margin:5,fontSize:18}}>{githubUser} entrou no InstaGithub</Text>
+            <Text style={{margin:5,fontSize:15}}>{githubUser} entrou no InstaGithub</Text>
           </View>
       </View>
     )
