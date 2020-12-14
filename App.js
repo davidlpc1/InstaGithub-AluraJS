@@ -1,88 +1,40 @@
-import React,{useState} from 'react';
-import Feed from './screens/Feed/index';
+import React from 'react';
+import { Text, View } from 'react-native';
+
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, View ,TouchableOpacity,Image,ScrollView,StyleSheet,TouchableWithoutFeedback} from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { AntDesign } from '@expo/vector-icons';
-import InstaGithub from './components/Posts/post'
 
-function PostsHorizontalSearch({navigation}){
-  const users = ['omariosouto','vweberfroes','gabrielfroes','peas','davidlpc1','filipedeschamps','diego3g','maykbrito','guilhermesilveira']
-  return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} pagingEnabled={false} >
-        {users.sort(() => Math.round(Math.random()) - Math.round(Math.random()) * Math.round(Math.random())).map(user => {
-          return (
-            <TouchableOpacity onPress={() => navigation.navigate('User',user)} style={{maxWidth:100}} key={user}>
-              <Image source={{uri:`https://github.com/${user}.png`}} style={{width:100,height:200}}/>
-            </TouchableOpacity>
-          )
-        })}
-    </ScrollView>
-  )
-}
+import Feed from './screens/Feed/index';
+import IGTV from './screens/IGTV/index';
+import Store from './screens/Store/index';
+import Search from './screens/Search/index';
+import User from './screens/Search/user';
 
-function Search({  navigation  }) {
-  return (
-    <ScrollView>
-      {[1,2,3,4,5,6,7,8].map(number => <PostsHorizontalSearch navigation={navigation} key={number} /> )}
-    </ScrollView>
-  ) 
-}
-
-function IGTV(){
-  return (
-    <View style={{justifyContent: 'center',alignItems: 'center',flex:1}}>
-      <Text>Vídeos no IGTV</Text>
-    </View>
-  ) 
-}
-
-function Store(){
-  return (
-    <View style={{justifyContent: 'center',alignItems: 'center',flex:1}}>
-      <Text>Compre já</Text>
-    </View>
-  ) 
-}
-
-
-const styles = StyleSheet.create({
-  postInfo:{
-    flexDirection: 'row',
-    padding:15,
-    alignItems:'center',
-  },
-
-  miniImageUser:{
-    marginRight:15,
-    width:40,
-    height:40,
-    borderRadius:20,
-  },
-
-  postImage:{
-    width:'100%',
-    height:350,
-  },
-});
-
-function User({ route }){
-  const githubUser = route.params
-  return (
-    <InstaGithub githubUser={githubUser}/>
-  )
-}
-
-// ====================================================
+import CreatePost from './screens/Feed/createpost'
+import Notifications from './screens/Feed/notifications';
+import Direct from './screens/Feed/direct'
 
 const UsersStack = createStackNavigator();
+const FeedStack = createStackNavigator();
+
+function FeedTabStack() {
+  return (
+    <FeedStack.Navigator>
+      <FeedStack.Screen name="Feed" component={Feed} options={{headerShown:false,}}  />
+      <FeedStack.Screen name="CreatePost" component={CreatePost} options={{headerTitleAlign:'center',}} />
+      <FeedStack.Screen name="Notifications" component={Notifications} options={{headerTitleAlign:'center',}} />
+      <FeedStack.Screen name="Direct" component={Direct} options={{headerTitleAlign:'center',}} />
+    </FeedStack.Navigator>
+  );
+}
 
 function UsersTabStack() {
   return (
     <UsersStack.Navigator>
-      <UsersStack.Screen name="Search" component={Search}  />
-      <UsersStack.Screen name="User" component={User} />
+      <UsersStack.Screen name="Search" component={Search} options={{headerTitleAlign:'center',}}  />
+      <UsersStack.Screen name="User" component={User} options={{headerTitleAlign:'center',}} />
     </UsersStack.Navigator>
   );
 }
@@ -111,7 +63,7 @@ function MyTabs() {
         },
       })}
     >
-      <Tab.Screen name="Feed" component={Feed} />
+      <Tab.Screen name="Feed" component={FeedTabStack} />
       <Tab.Screen name="Search" component={UsersTabStack} />
       <Tab.Screen name="IGTV" component={IGTV} />
       <Tab.Screen name="Store" component={Store} />

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
 });  
 
-export default function Header(){
+export default function Header({ navigation }){
     return (
       <View style={styles.container}>
         <TouchableOpacity>
@@ -42,15 +42,15 @@ export default function Header(){
         </TouchableOpacity>
   
         <View style={styles.containerIcons}>
-          <TouchableOpacity>
+          <TouchableOpacity  onPress={() => navigation.navigate('CreatePost')}>
             <AntDesign style={styles.margin5} name="plussquareo" size={24} color="black" />
           </TouchableOpacity>
   
-          <TouchableOpacity>
+          <TouchableOpacity  onPress={() => navigation.navigate('Notifications')}>
             <AntDesign style={styles.margin5}  name="hearto" size={24} color="black" />
           </TouchableOpacity>
   
-          <TouchableOpacity>
+          <TouchableOpacity  onPress={() => navigation.navigate('Direct')}>
             <Entypo style={styles.margin5}  name="direction" size={24} color="black" />
           </TouchableOpacity>
           

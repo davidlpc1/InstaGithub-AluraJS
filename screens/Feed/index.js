@@ -2,14 +2,16 @@ import React from 'react';
 import { 
   StyleSheet, 
   SafeAreaView,
+  TouchableOpacity,
+  Text
 } from 'react-native';
 import Header from '../../components/Header'
 import Posts from '../../components/Posts/'
 
-export default function Feed() {
+export default function Feed({  navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
+      <Header navigation={navigation} />
       <Posts />
     </SafeAreaView>
   );
