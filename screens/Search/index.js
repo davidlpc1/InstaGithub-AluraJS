@@ -2,13 +2,11 @@ import React, { useCallback } from 'react';
 import {TouchableOpacity,Image,ScrollView,StyleSheet} from 'react-native';
 import users from '../../users_data'
 
-function PostsHorizontalSearch({ navigation }){
-    const sortRandom = useCallback(
-      () => Math.round(
-        Math.random() + (10 * Math.random()) * (Math.random() * 10) - Math.random()
-      ),[ navigation ]
-    )
+const sortRandom = () => Math.round(
+  Math.random() + (10 * Math.random()) * (Math.random() * 10) - Math.random() * Math.random()
+)
 
+function PostsHorizontalSearch({ navigation }){    
     const viewUsersPosts = useCallback(user => {
         return (
           <TouchableOpacity onPress={() => navigation.navigate('User',user)} style={{maxWidth:100}} key={user}>
