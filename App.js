@@ -14,7 +14,8 @@ import User from './screens/Search/user';
 
 import CreatePost from './screens/Feed/createpost'
 import Notifications from './screens/Feed/notifications';
-import Direct from './screens/Feed/direct'
+import Direct from './screens/Feed/direct';
+import MessageDirect from './screens/Feed/messagedirect';
 
 const UsersStack = createStackNavigator();
 const FeedStack = createStackNavigator();
@@ -26,6 +27,7 @@ function FeedTabStack() {
       <FeedStack.Screen name="CreatePost" component={CreatePost} options={{headerTitleAlign:'center',}} />
       <FeedStack.Screen name="Notifications" component={Notifications} options={{headerTitleAlign:'center',}} />
       <FeedStack.Screen name="Direct" component={Direct} options={{headerTitleAlign:'center',}} />
+      <FeedStack.Screen name="MessageDirect" component={MessageDirect} options={{headerTitleAlign:'center',}} />
     </FeedStack.Navigator>
   );
 }
