@@ -3,9 +3,9 @@ import {
   ScrollView,
 } from 'react-native';
 import InstaGitHubCard from './post.js';
+import users from '../../users_data'
 
 export default function Posts(){
-  const users = ['omariosouto','vweberfroes','gabrielfroes','peas','davidlpc1','filipedeschamps','diego3g','maykbrito','guilhermesilveira']
   return(
     <>
       <ScrollView>
