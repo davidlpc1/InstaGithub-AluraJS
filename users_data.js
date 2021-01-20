@@ -1,4 +1,4 @@
-export default [
+const users = [
     'omariosouto',
     'vweberfroes',
     'gabrielfroes',
@@ -9,3 +9,5 @@ export default [
     'maykbrito',
     'guilhermesilveira',
 ]
+
+export default users

@@ -6,7 +6,7 @@ function Message({ url, text, isMe=false }){
     return (
         <View style={{flex:1,flexDirection:isMe ? 'row-reverse' : 'row',alignItems: 'center',marginVertical:5}}>
             <Image source={{uri:url}} style={{height:30,width:30,borderRadius:15}}/>
-            <View style={{justifyContent:'center',alignItems:'center',marginLeft:10,marginRight:10,backgroundColor:'#111a',borderRadius:20,minWidth:120,maxWidth:170}}>
+            <View style={{padding:3,justifyContent:'center',alignItems:'center',marginLeft:10,marginRight:10,backgroundColor:'#111a',borderRadius:20,minWidth:120,maxWidth:170}}>
                 <Text style={{margin:5,color:'#fff'}}>{text}</Text>
             </View>
         </View>
